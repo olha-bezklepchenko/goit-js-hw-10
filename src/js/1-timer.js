@@ -96,14 +96,9 @@ function updateTimerDisplay({ days, hours, minutes, seconds }) {
 
 iziToast.settings({
   class: 'izi-toast',
-  titleSize: '16px',
-  titleFontWeight: '700',
-  messageSize: '16px',
-  messageFontWeight: '400',
   position: 'topRight',
   backgroundColor: 'rgba(239, 64, 64, 1)',
   progressBarColor: 'rgba(181, 27, 27, 1)',
-  iconUrl: './img/icon-x.svg',
   theme: 'dark',
   maxWidth: '302px',
 });

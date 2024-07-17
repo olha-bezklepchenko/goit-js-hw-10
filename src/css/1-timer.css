@@ -72,6 +72,6 @@ button:disabled {
 .izi-toast {
   border-radius: 4px;
   border-bottom: 2px solid #ffbebe;
-  /* width: 302px; */
+  width: 302px;
   height: 62px;
 }
