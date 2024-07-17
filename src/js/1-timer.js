@@ -100,5 +100,4 @@ iziToast.settings({
   backgroundColor: 'rgba(239, 64, 64, 1)',
   progressBarColor: 'rgba(181, 27, 27, 1)',
   theme: 'dark',
-  maxWidth: '302px',
 });
