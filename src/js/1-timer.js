@@ -3,6 +3,7 @@ import 'flatpickr/dist/flatpickr.min.css';
 import iziToast from 'izitoast';
 import 'izitoast/dist/css/iziToast.min.css';
 
+// Отримуємо посилання на елементи DOM
 const dateInput = document.querySelector('#datetime-picker');
 const startButton = document.querySelector('button[data-start]');
 const daysValue = document.querySelector('[data-days]');
@@ -10,22 +11,25 @@ const hoursValue = document.querySelector('[data-hours]');
 const minutesValue = document.querySelector('[data-minutes]');
 const secondsValue = document.querySelector('[data-seconds]');
 
+// Спочатку кнопка "Start" вимкнена
 startButton.disabled = true;
 let userSelectedDate = null;
 let countdownInterval = null;
 
+// Параметри для flatpickr
 const options = {
   enableTime: true,
   time_24hr: true,
   defaultDate: new Date(),
   minuteIncrement: 1,
+  // Колбек, що викликається при закритті календаря
   onClose(selectedDates) {
     const selectedDate = selectedDates[0];
+    // Якщо вибрана дата в минулому, показуємо повідомлення про помилку
     if (selectedDate <= new Date()) {
       iziToast.error({
         title: 'Error',
         message: 'Please choose a date in the future',
-        position: 'topRight',
       });
       startButton.disabled = true;
     } else {
@@ -89,3 +93,16 @@ function updateTimerDisplay({ days, hours, minutes, seconds }) {
   minutesValue.textContent = addLeadingZero(minutes);
   secondsValue.textContent = addLeadingZero(seconds);
 }
+
+iziToast.settings({
+  class: 'izi-toast',
+  titleSize: '16px',
+  titleFontWeight: '700',
+  messageSize: '16px',
+  messageFontWeight: '400',
+  position: 'topRight',
+  backgroundColor: 'rgba(239, 64, 64, 1)',
+  progressBarColor: 'rgba(181, 27, 27, 1)',
+  iconUrl: '../img/bi_x-octagon.svg',
+  theme: 'dark',
+});
