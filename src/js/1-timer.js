@@ -103,6 +103,7 @@ iziToast.settings({
   position: 'topRight',
   backgroundColor: 'rgba(239, 64, 64, 1)',
   progressBarColor: 'rgba(181, 27, 27, 1)',
-  iconUrl: '../img/bi_x-octagon.svg',
+  iconUrl: './img/icon-x.svg',
   theme: 'dark',
+  maxWidth: '302px',
 });
