@@ -38,12 +38,14 @@ const options = {
     }
   },
 };
+// ініціалізація flatpickr
 
 flatpickr(dateInput, options);
 
 startButton.addEventListener('click', onClick);
 
 // Колбек для обробки події натискання на кнопку "Start"
+
 function onClick() {
   if (userSelectedDate) {
     startCountdown(userSelectedDate);
@@ -51,6 +53,7 @@ function onClick() {
     dateInput.disabled = true;
   }
 }
+// Функція для запуску зворотного відліку
 
 function startCountdown(endDate) {
   countdownInterval = setInterval(() => {
@@ -69,6 +72,8 @@ function startCountdown(endDate) {
   }, 1000);
 }
 
+// Функція для конвертації мілісекунд
+
 function convertMs(ms) {
   const second = 1000;
   const minute = second * 60;
@@ -83,10 +88,12 @@ function convertMs(ms) {
   return { days, hours, minutes, seconds };
 }
 
+// Функція для додавання нулів до числа, якщо воно менше 10
 function addLeadingZero(value) {
   return String(value).padStart(2, '0');
 }
 
+// Функція для оновлення відображення таймера
 function updateTimerDisplay({ days, hours, minutes, seconds }) {
   daysValue.textContent = addLeadingZero(days);
   hoursValue.textContent = addLeadingZero(hours);
@@ -94,6 +101,7 @@ function updateTimerDisplay({ days, hours, minutes, seconds }) {
   secondsValue.textContent = addLeadingZero(seconds);
 }
 
+// Налаштування додаткових стилів для повідомлень iziToast
 iziToast.settings({
   class: 'izi-toast',
   position: 'topRight',
